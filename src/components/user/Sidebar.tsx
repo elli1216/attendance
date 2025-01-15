@@ -7,7 +7,7 @@ const Sidebar = () => {
       <SidebarItem icon={faHome} text="Home" route='/user'/>
       <SidebarItem icon={faUser} text="Profile" route='/user/profile'/>
       <SidebarItem icon={faCalendar} text="Grades" route='/user/grades'/>
-      <SidebarItem icon={faPenToSquare} text="Report an Issue" route='/'/>
+      <SidebarItem icon={faPenToSquare} text="Report an Issue" route='/user/report'/>
     </div>
   );
 };
