@@ -7,10 +7,10 @@ const Main = () => {
   const date = new Date();
 
   return (
-    <div className="flex-row bg-mainColor">
+    <div className="flex-row bg-mainColor overflow-auto h-full">
       <div className="flex-row justify-between p-2 ">
-        <div className="bg-white p-2 mb-3 text-xl">Home</div>
-        <div className="bg-green p-4 text-3xl"><span className="text-red">Welcome,</span> Juan Dela Cruz</div>
+        <div className="bg-myWhite p-2 mb-3 text-xl">Home</div>
+        <div className="bg-myGreen p-4 text-3xl"><span className="text-myRed">Welcome,</span> Juan Dela Cruz</div>
       </div>
       <div className="flex">
         <div className="grid grid-cols-2 grid-rows-2 gap-4 p-4">

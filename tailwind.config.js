@@ -14,9 +14,11 @@ export default {
         sideBarHoverColor: '#3A473A',
         mainColor: '#EAE8E8',
         mainItemColor: '#5A8C5A',
-        white: '#FFFDFD',
-        green: '#7CA47C',
-        red: '#CB4900'
+        myWhite: '#FFFDFD',
+        myGreen: '#7CA47C',
+        myRed: '#CB4900',
+        buttonColor: '#454B1B',
+        gradeBgColor: '#EAE8E8'
       },
       gridTemplateColumns: {
         'mainContent': '1fr 5fr',
