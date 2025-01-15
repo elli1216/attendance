@@ -7,7 +7,7 @@ const Profile = () => {
         <div className="bg-myGreen p-4 font-semibold text-3xl text-white">PROFILE</div>
       </div>
       <div className="grid grid-cols-[1.5fr_1fr] m-2 gap-4">
-        <div className="flex-row bg-white p-8 border-2 border-black rounded-lg">
+        <div className="flex-row bg-white p-8 border-2 border-black rounded-lg shadow-lg">
           <h1 className="text-2xl font-bold mb-4">Profile Information</h1>
           <div className="grid grid-cols-[repeat(3,1fr)] gap-4">
             <div className="grid items-center grid-rows-2">
@@ -60,7 +60,7 @@ const Profile = () => {
             <button className="flex bg-buttonColor text-white p-2 justify-center justify-self-end w-fit">Save Changes</button>
           </div>
         </div>
-        <div className="grid grid-rows-[repeat(4,_auto)] justify-center content-center justify-items-center gap-2 bg-white p-4 border-2 border-black rounded-lg h-[25rem]">
+        <div className="grid grid-rows-[repeat(4,_auto)] justify-center content-center justify-items-center gap-2 bg-white p-4 border-2 border-black rounded-lg h-[25rem] shadow-lg">
           <img className="rounded-full w-32 h-32" src="/images/pfp_placeholder.png" alt="" />
           <h1 className="font-bold text-2xl">Juan Dela Cruz</h1>
           <h1 className="">juandelacruz@gmail.com</h1>
