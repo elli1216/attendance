@@ -14,10 +14,10 @@ const Main = () => {
       </div>
       <div className="flex">
         <div className="grid grid-cols-2 grid-rows-2 gap-4 p-4">
-          <MainItem icon={faUser} text="Profile" />
-          <MainItem icon={faBell} text="Grades" />
-          <MainItem icon={faEnvelope} text="Notification" />
-          <MainItem icon={faCalendar} text="Attendance" />
+          <MainItem icon={faUser} text="Profile" route='/user/profile'/>
+          <MainItem icon={faBell} text="Grades" route='/user/grades' />
+          <MainItem icon={faEnvelope} text="Notification" route='/'/>
+          <MainItem icon={faCalendar} text="Attendance" route='/'/>
         </div>
         <div className="p-4">
           <Calendar value={date} />
