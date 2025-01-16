@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 interface AdminData {
   id: number;
   name: string;
@@ -11,12 +13,8 @@ interface StudentData {
 
 const fetchAdminData = async (): Promise<AdminData[]> => {
   try {
-    const response = await fetch('/api/admin');
-    if (!response.ok) {
-      throw new Error('Network response was not ok');
-    }
-    const data: AdminData[] = await response.json();
-    return data;
+    const response = await axios.get<AdminData[]>('/api/admin');
+    return response.data;
   } catch (error) {
     console.error('Error fetching admin data:', error);
     throw error;
@@ -25,12 +23,8 @@ const fetchAdminData = async (): Promise<AdminData[]> => {
 
 const fetchAdminDataById = async (id: number): Promise<AdminData> => {
   try {
-    const response = await fetch(`/api/admin/${id}`);
-    if (!response.ok) {
-      throw new Error('Network response was not ok');
-    }
-    const data: AdminData = await response.json();
-    return data;
+    const response = await axios.get<AdminData>(`/api/admin/${id}`);
+    return response.data;
   } catch (error) {
     console.error('Error fetching admin data:', error);
     throw error;
@@ -39,12 +33,8 @@ const fetchAdminDataById = async (id: number): Promise<AdminData> => {
 
 const fetchStudentsData = async (): Promise<StudentData[]> => {
   try {
-    const response = await fetch('/api/students');
-    if (!response.ok) {
-      throw new Error('Network response was not ok');
-    }
-    const data: StudentData[] = await response.json();
-    return data;
+    const response = await axios.get<StudentData[]>('/api/students');
+    return response.data;
   } catch (error) {
     console.error('Error fetching students data:', error);
     throw error;
@@ -53,12 +43,8 @@ const fetchStudentsData = async (): Promise<StudentData[]> => {
 
 const fetchStudentsDataById = async (id: number): Promise<StudentData> => {
   try {
-    const response = await fetch(`/api/students/${id}`);
-    if (!response.ok) {
-      throw new Error('Network response was not ok');
-    }
-    const data: StudentData = await response.json();
-    return data;
+    const response = await axios.get<StudentData>(`/api/students/${id}`);
+    return response.data;
   } catch (error) {
     console.error('Error fetching students data:', error);
     throw error;
