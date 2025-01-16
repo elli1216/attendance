@@ -1,8 +1,11 @@
-import React from 'react'
 
 const Register = () => {
   return (
-    <div>Register</div>
+    <div className="flex justify-center bg-authBg bg-cover min-h-screen w-[100vw]">
+      <div className="opacity-80 bg-divAuthColor my-10 px-16 py-10 rounded-lg">
+        
+      </div>
+    </div>
   )
 }
 

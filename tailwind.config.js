@@ -18,13 +18,18 @@ export default {
         myGreen: '#7CA47C',
         myRed: '#CB4900',
         buttonColor: '#454B1B',
-        gradeBgColor: '#EAE8E8'
+        gradeBgColor: '#EAE8E8',
+        divAuthColor: '#111312',
+        linkColor: '#3C96F0',
       },
       gridTemplateColumns: {
         'mainContent': '1fr 5fr',
       },
       gridTemplateRows: {
         'body': 'auto 1fr',
+      },
+      backgroundImage: {
+        'authBg': "url('/images/background.png')",
       }
     },
   },
