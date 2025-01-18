@@ -1,5 +1,6 @@
 import axios from 'axios';
 
+
 interface AdminData {
   id: number;
   name: string;
@@ -10,10 +11,11 @@ interface StudentData {
   name: string;
   grade: number;
 }
+const URL = 'http://localhost:3001';
 
 const fetchAdminData = async (): Promise<AdminData[]> => {
   try {
-    const response = await axios.get<AdminData[]>('/api/admin');
+    const response = await axios.get<AdminData[]>(`${URL}/api/admin`);
     return response.data;
   } catch (error) {
     console.error('Error fetching admin data:', error);
@@ -23,7 +25,7 @@ const fetchAdminData = async (): Promise<AdminData[]> => {
 
 const fetchAdminDataById = async (id: number): Promise<AdminData> => {
   try {
-    const response = await axios.get<AdminData>(`/api/admin/${id}`);
+    const response = await axios.get<AdminData>(`${URL}/api/admin/${id}`);
     return response.data;
   } catch (error) {
     console.error('Error fetching admin data:', error);
@@ -33,7 +35,7 @@ const fetchAdminDataById = async (id: number): Promise<AdminData> => {
 
 const fetchStudentsData = async (): Promise<StudentData[]> => {
   try {
-    const response = await axios.get<StudentData[]>('/api/students');
+    const response = await axios.get<StudentData[]>(`${URL}/api/students`);
     return response.data;
   } catch (error) {
     console.error('Error fetching students data:', error);
@@ -43,7 +45,7 @@ const fetchStudentsData = async (): Promise<StudentData[]> => {
 
 const fetchStudentsDataById = async (id: number): Promise<StudentData> => {
   try {
-    const response = await axios.get<StudentData>(`/api/students/${id}`);
+    const response = await axios.get<StudentData>(`${URL}/api/student/${id}`);
     return response.data;
   } catch (error) {
     console.error('Error fetching students data:', error);

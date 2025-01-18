@@ -1,36 +1,42 @@
 import React, { useState } from 'react';
-import { isValidEmail, isValidPassword } from '../../utils/validation';
+import { isValidEmail, isEmpty, isValidPassword } from '../../utils/validation';
 import { loginUser } from '../../services/authService';
 import { useNavigate } from 'react-router';
-import useSignIn from 'react-auth-kit/hooks/useSignIn';
+import { toast } from 'react-toastify';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
-  const signIn = useSignIn();
   const navigate = useNavigate();
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
 
+    if (isEmpty(email) || isEmpty(password)) {
+      setError('Please input fields.');
+      return;
+    }
+
     if (!isValidEmail(email)) {
-      setError('Invalid email format');
+      setError('Invalid email format.');
       return;
     }
 
     if (!isValidPassword(password)) {
-      setError('Password must be at least 8 characters long');
+      setError('Password must be at least 8 characters long.');
       return;
     }
 
     try {
-      await loginUser(email, password, signIn);
+      const data = await loginUser(email, password);
+      localStorage.setItem('token', data.token);
+      toast.success('User successfully registered!');
       navigate('/user');
-
+      
     } catch (err) {
-      console.error('Error logging in:', err);
+      console.error(err);
       setError('Invalid credentials');
     }
   };
@@ -46,6 +52,7 @@ const Login = () => {
             <h1 className="text-3xl text-white font-bold">Login to your account</h1>
             <input className="p-2" type="email" placeholder="johndoe@gmail.com" value={email} onChange={(e) => setEmail(e.target.value)} />
             <input className="p-2" type="password" placeholder="••••••••" value={password} onChange={(e) => setPassword(e.target.value)} />
+            {error && <p className="text-red-500">{error}</p>}
             <div className="flex justify-between items-center">
               <div className="flex items-center">
                 <input type="checkbox" name="checkbox" />
@@ -55,7 +62,6 @@ const Login = () => {
                 <button className="bg-buttonColor text-white px-2 py-1">Login</button>
               </div>
             </div>
-            {error && <p className="text-red-500">{error}</p>}
           </form>
           <div className="grid gap-2 mt-2 p-2">
             <h1 className="text-white text-2xl font-bold">Forgot your password?</h1>
